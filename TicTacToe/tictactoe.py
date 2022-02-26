@@ -34,3 +34,21 @@ def who_goes_first():
         return 'Компьютер'
     else:
         return "Человек"
+
+
+# Функция размещения меток на игровом поле
+def make_move(board, letter, move):
+    board[move] = letter
+
+
+# Проверка - победил ли игрок
+def is_winner(bo, le):
+    # Учитывая заполнение игрового поля и буквы игрока, эта функция возвращет True, если игрок выиграл.
+    return ((bo[7] == le and bo[8] == le and bo[9] == le) or  # через верх
+            (bo[4] == le and bo[5] == le and bo[6] == le) or  # через центр
+            (bo[1] == le and bo[2] == le and bo[3] == le) or  # через низ
+            (bo[7] == le and bo[4] == le and bo[1] == le) or  # вниз по левой стороне
+            (bo[8] == le and bo[5] == le and bo[2] == le) or  # вниз по центру
+            (bo[9] == le and bo[6] == le and bo[3] == le) or  # вниз по правой стороне
+            (bo[7] == le and bo[5] == le and bo[3] == le) or  # диагональ с левого верха до правого низа
+            (bo[9] == le and bo[5] == le and bo[1] == le))  # диагональ с правого верха до левого низа
